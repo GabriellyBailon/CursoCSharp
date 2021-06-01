@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace ExercicioFixacao_Composicao.Entities
@@ -22,6 +21,16 @@ namespace ExercicioFixacao_Composicao.Entities
             Nome = nome;
             Email = email;
             DataDeNascimento = dataDeNascimento;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Nome);
+            sb.AppendLine(Email);
+            sb.AppendLine(DataDeNascimento.ToString("dd/MM/yyyy"));
+
+            return sb.ToString();
         }
     }
 }

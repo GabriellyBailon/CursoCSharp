@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ExercicioFixacao_Composicao.Enums
+﻿namespace ExercicioFixacao_Composicao.Enums
 {
     enum OrderStatus : int
     {
