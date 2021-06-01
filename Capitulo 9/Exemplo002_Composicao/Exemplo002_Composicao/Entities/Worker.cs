@@ -44,15 +44,16 @@ namespace Exemplo002_Composicao.Entities
 
             foreach(HourContract contract in Contracts)
             {
-                if(contract.Date.Year == year)
+                if (contract.Date.Year == year && contract.Date.Month == month)
                 {
                     sum += contract.TotalValue(); 
                 }
             }
 
             return sum;
-
         }
+
+
 
 
 
