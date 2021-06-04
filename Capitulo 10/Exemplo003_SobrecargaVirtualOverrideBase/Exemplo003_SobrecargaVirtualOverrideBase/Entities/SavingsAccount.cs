@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Exemplo003_SobrecargaVirtualOverrideBase.Entities
 {
-     class SavingsAccount : Account
+    //Classe selada "final"
+    sealed class SavingsAccount : Account
     {
         //Taxa de juros
         public double InterestRate { get; set; }
@@ -25,7 +26,8 @@ namespace Exemplo003_SobrecargaVirtualOverrideBase.Entities
         }
 
         //Sobrescrita do método de saque
-        public override void WithDraw(double amount)
+        //O sealed não permite que um método JÁ sobrescrito, seja sobrescrito NOVAMENTE
+        public sealed override void WithDraw(double amount)
         {
             base.WithDraw(amount);      // Chama a operação de saque da superclasse primeiramente
             Balance -= amount;
