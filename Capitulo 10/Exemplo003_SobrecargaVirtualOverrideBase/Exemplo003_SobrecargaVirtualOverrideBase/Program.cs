@@ -1,5 +1,7 @@
 ﻿using System;
 using Exemplo003_SobrecargaVirtualOverrideBase.Entities;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace Exemplo003_SobrecargaVirtualOverrideBase
 {
@@ -7,14 +9,34 @@ namespace Exemplo003_SobrecargaVirtualOverrideBase
     {
         static void Main(string[] args)
         {
-            Account acc1 = new Account(1001, "Alex", 500);
-            Account acc2 = new SavingsAccount(1002, "Anna", 500, 0.01);
+            double soma = 0.0;
 
-            acc1.WithDraw(10.00);
-            acc2.WithDraw(10.00);
+            //Mesmo que Account seja uma classe abstrata, é possível fazer uma
+            //lista com objetos desse tipo
+            List<Account> accounts = new List<Account>();
 
-            Console.WriteLine(acc1.Balance);
-            Console.WriteLine(acc2.Balance);
+            accounts.Add(new SavingsAccount(1001, "Alex", 1000, 0.01));
+            accounts.Add(new BusinessAccount(1002, "Maria", 500, 400));
+            accounts.Add(new SavingsAccount(1003, "Bob", 500.00, 0.01));
+            accounts.Add(new BusinessAccount(1004, "Anna", 500.00, 500.00));
+
+            foreach(Account acc in accounts)
+            {
+                soma += acc.Balance;
+            }
+
+            Console.WriteLine($"Soma total: {soma.ToString("F2", CultureInfo.InvariantCulture)}");
+
+            foreach(Account acc in accounts)
+            {
+                acc.WithDraw(10.00);
+            }
+
+            foreach (Account acc in accounts)
+            {
+                Console.WriteLine($"Saldo atualizado da conta {acc.Number} : " +
+                    $"{acc.Balance.ToString("F2", CultureInfo.InvariantCulture)}");
+            }
         }
     }
 }

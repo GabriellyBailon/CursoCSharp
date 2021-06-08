@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Exemplo003_SobrecargaVirtualOverrideBase.Entities
 {
-    class Account
+    public abstract class Account
     {
         //Número da conta
         public int Number { get; private set; }
