@@ -19,5 +19,13 @@ namespace tabuleiro
             Colunas = colunas;
             Pecas = new Peca[linhas, colunas];
         }
+
+        //Matriz de peças é privada por segurança,
+        //mas ainda precisamos ter acesso às peças
+        //para algumas operações, para isso vamos utilizar o método a seguir
+        public Peca GetPeca(int linha, int coluna)
+        {
+            return Pecas[linha, coluna];
+        }
     }
 }

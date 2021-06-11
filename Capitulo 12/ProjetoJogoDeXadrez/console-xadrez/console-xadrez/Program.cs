@@ -7,11 +7,11 @@ namespace console_xadrez
     {
         static void Main(string[] args)
         {
-            Posicao posicao = new Posicao(1, 2);
-
             Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
-            Console.WriteLine(posicao);
+            Tela.ImprimirTabuleiro(tabuleiro);
+
+        
         }
     }
 }
