@@ -9,6 +9,8 @@ namespace console_xadrez
         {
             Posicao posicao = new Posicao(1, 2);
 
+            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+
             Console.WriteLine(posicao);
         }
     }
