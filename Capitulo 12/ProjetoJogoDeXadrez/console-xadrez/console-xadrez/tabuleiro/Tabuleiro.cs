@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace tabuleiro
+    namespace tabuleiro
 {
     public class Tabuleiro
     {
@@ -48,6 +46,24 @@ namespace tabuleiro
             }
             Pecas[posicao.Linha, posicao.Coluna] = peca;
             peca.Posicao = posicao;
+        }
+
+        public Peca RetirarPeca(Posicao posicao)
+        {
+            if (GetPeca(posicao) == null)
+            {
+                return null;
+            }
+
+            //Guarda a peça
+            Peca auxiliar = GetPeca(posicao);
+            //Mas sem posição pois ela estará removida
+            auxiliar.Posicao = null;
+            Pecas[posicao.Linha, posicao.Coluna] = null;
+
+            return auxiliar;
+
+
         }
 
         public bool PosicaoValida(Posicao posicao)
